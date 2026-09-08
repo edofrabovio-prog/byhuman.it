@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BYHUMAN - Premium handcrafted fashion. Choose your piece, express yourself, we handcraft the rest.">
+    <title>BYHUMAN - Create It. Make It Human.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-white: #fafafa;
+            --color-gray-light: #e5e5e5;
+            --color-gray: #8a8a8a;
+            --color-gray-dark: #2a2a2a;
+            --color-beige: #f5f0e8;
+            --color-accent: #c9a961;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Thread Line Animation */
+        .thread-line {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 0;
+            background: var(--color-black);
+            z-index: 1000;
+            transition: height 0.3s var(--transition-smooth);
+        }
+
+        .thread-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: var(--color-black);
+            border-radius: 50%;
+            animation: needlePulse 2s infinite;
+        }
+
+        @keyframes needlePulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 2rem 4rem;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+        }
+
+        header.scrolled {
+            padding: 1rem 4rem;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--color-black);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-black);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-black);
+            transition: width 0.3s var(--transition-smooth);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 0.8rem 2rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background: var(--color-gray-dark);
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: var(--color-black);
+            border: 1px solid var(--color-black);
+        }
+
+        .cta-button.secondary:hover {
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .header-icons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .icon-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--color-black);
+            transition: opacity 0.3s;
+        }
+
+        .icon-button:hover {
+            opacity: 0.6;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: var(--color-black);
+            transition: all 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 8rem 4rem 4rem;
+            background: var(--color-white);
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1600px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s var(--transition-smooth);
+        }
+
+        .hero-headline {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 900;
+            line-height: 0.9;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            color: var(--color-gray-dark);
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            animation: fadeIn 1.2s var(--transition-smooth);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            filter: contrast(1.1);
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: -20px;
+            bottom: -20px;
+            border: 1px solid var(--color-black);
+            z-index: -1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Brand Statement */
+        .brand-statement {
+            padding: 10rem 4rem;
+            background: var(--color-beige);
+            text-align: center;
+        }
+
+        .brand-statement-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .brand-statement p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+        }
+
+        /* Creator Section */
+        .creator {
+            padding: 8rem 4rem;
+            background: var(--color-white);
+        }
+
+        .creator-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .creator-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .creator-header p {
+            font-size: 1.2rem;
+            color: var(--color-gray);
+            font-weight: 300;
+        }
+
+        .creator-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .creator-preview {
+            position: sticky;
+            top: 120px;
+            height: 600px;
+            background: var(--color-gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .creator-preview img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: all 0.5s var(--transition-smooth);
+        }
+
+        .creator-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .step {
+            padding: 3rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-light);
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .step.active {
+            border-color: var(--color-black);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .step-subtitle {
+            font-size: 1rem;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .category-card {
+            padding: 2rem 1rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-light);
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .category-card:hover {
+            border-color: var(--color-black);
+            transform: translateY(-5px);
+        }
+
+        .category-card.selected {
+            background: var(--color-black);
+            color: var(--color-white);
+            border-color: var(--color-black);
+        }
+
+        .category-card h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .collections {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .collection {
+            border-bottom: 1px solid var(--color-gray-light);
+            padding-bottom: 2rem;
+        }
+
+        .collection-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .design-card {
+            padding: 1.5rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-light);
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .design-card:hover {
+            border-color: var(--color-black);
+        }
+
+        .design-card.selected {
+            border-color: var(--color-black);
+            background: var(--color-beige);
+        }
+
+        .design-card h5 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .design-card p {
+            font-size: 0.8rem;
+            color: var(--color-gray);
+            font-weight: 300;
+        }
+
+        .options-group {
+            margin-bottom: 2rem;
+        }
+
+        .options-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .options-list {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .option-button {
+            padding: 0.8rem 1.5rem;
+            background: var(--color-white);
+            border: 1px solid var(--color-gray-light);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .option-button:hover {
+            border-color: var(--color-black);
+        }
+
+        .option-button.selected {
+            background: var(--color-black);
+            color: var(--color-white);
+            border-color: var(--color-black);
+        }
+
+        .thread-colors {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .thread-color {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thread-color:hover {
+            transform: scale(1.1);
+        }
+
+        .thread-color.selected {
+            border-color: var(--color-black);
+            box-shadow: 0 0 0 3px var(--color-white), 0 0 0 5px var(--color-black);
+        }
+
+        .summary-box {
+            background: var(--color-beige);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+
+        .summary-item:last-child {
+            border-bottom: none;
+        }
+
+        .summary-label {
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+        }
+
+        .summary-value {
+            color: var(--color-gray-dark);
+        }
+
+        .price-total {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* Artisanal Details */
+        .artisanal-details {
+            padding: 6rem 4rem;
+            background: var(--color-black);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .artisanal-details h3 {
+            font-size: 3rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .artisanal-details p {
+            font-size: 1.3rem;
+            font-weight: 300;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 10rem 4rem;
+            background: var(--color-white);
+        }
+
+        .steps-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 4rem;
+        }
+
+        .step-block {
+            text-align: center;
+        }
+
+        .step-block-number {
+            font-size: 8rem;
+            font-weight: 900;
+            color: var(--color-gray-light);
+            line-height: 1;
+            margin-bottom: 2rem;
+        }
+
+        .step-block h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .step-block p {
+            font-size: 1.1rem;
+            color: var(--color-gray);
+            font-weight: 300;
+        }
+
+        /* Handmade Process */
+        .handmade-process {
+            padding: 10rem 4rem;
+            background: var(--color-beige);
+        }
+
+        .process-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .process-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 6rem;
+            line-height: 1.1;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .process-step-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .process-step p {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            font-weight: 300;
+        }
+
+        /* Trends */
+        .trends {
+            padding: 10rem 4rem;
+            background: var(--color-white);
+        }
+
+        .trends-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .trends-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .trends-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .trend-card {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .trend-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .trend-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .trend-card-content {
+            padding: 2rem 0;
+        }
+
+        .trend-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .trend-card p {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            font-weight: 300;
+        }
+
+        /* Lookbook */
+        .lookbook {
+            padding: 10rem 4rem;
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .lookbook-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+
+        .lookbook-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .lookbook-grid {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        .lookbook-item {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lookbook-item:nth-child(1) {
+            grid-column: span 7;
+            grid-row: span 2;
+        }
+
+        .lookbook-item:nth-child(2) {
+            grid-column: span 5;
+        }
+
+        .lookbook-item:nth-child(3) {
+            grid-column: span 5;
+        }
+
+        .lookbook-item:nth-child(4) {
+            grid-column: span 6;
+        }
+
+        .lookbook-item:nth-child(5) {
+            grid-column: span 6;
+        }
+
+        .lookbook-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s var(--transition-smooth);
+        }
+
+        .lookbook-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .lookbook-label {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            background: var(--color-white);
+            color: var(--color-black);
+            padding: 1rem 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 6rem 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .footer-column h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+
+        .footer-column a:hover {
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-dark);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-gray);
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--transition-smooth);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+
+            header.scrolled {
+                padding: 1rem 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 6rem 2rem 4rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .creator-container {
+                grid-template-columns: 1fr;
+            }
+
+            .creator-preview {
+                position: relative;
+                top: 0;
+                height: 400px;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .lookbook-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lookbook-item:nth-child(n) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 5rem 1rem 3rem;
+            }
+
+            .hero-headline {
+                font-size: 3rem;
+            }
+
+            .brand-statement,
+            .creator,
+            .artisanal-details,
+            .how-it-works,
+            .handmade-process,
+            .trends,
+            .lookbook {
+                padding: 5rem 1rem;
+            }
+
+            .step {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 4rem 1rem 2rem;
+            }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--color-white);
+            z-index: 998;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .mobile-menu a {
+            font-size: 2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            color: var(--color-black);
+        }
+
+        .close-menu {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Thread Line -->
+    <div class="thread-line" id="threadLine"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="#" class="logo">BYHUMAN</a>
+            <nav>
+                <a href="#collection">Collection</a>
+                <a href="#customize">Customize</a>
+                <a href="#trends">Trends</a>
+                <a href="#lookbook">Lookbook</a>
+                <a href="#about">About</a>
+            </nav>
+            <div class="header-icons">
+                <button class="icon-button" aria-label="Account">👤</button>
+                <button class="icon-button" aria-label="Cart"></button>
+                <a href="#customize" class="cta-button">Start Creating</a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="close-menu" id="closeMenu">✕</button>
+        <a href="#collection">Collection</a>
+        <a href="#customize">Customize</a>
+        <a href="#trends">Trends</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#about">About</a>
+        <a href="#customize" class="cta-button">Start Creating</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-headline">Create It.<br>Make It Human.</h1>
+                <p class="hero-subtitle">Choose a piece.<br>Choose what represents you.<br>We handcraft the rest.</p>
+                <div class="hero-cta">
+                    <a href="#customize" class="cta-button">Start Creating</a>
+                    <a href="#collection" class="cta-button secondary">Explore the Collection</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="BYHUMAN - Hand embroidered hoodie with botanical design">
+            </div>
+        </div>
+    </section>
+
+    <!-- Brand Statement -->
+    <section class="brand-statement">
+        <div class="brand-statement-content fade-in">
+            <h2 class="section-title">One Garment.<br>Infinite Identities.</h2>
+            <p>ByHuman nasce dall'idea che un capo non debba essere semplicemente indossato, ma possa diventare un'estensione di chi lo indossa. Selezioniamo capi e li trasformiamo attraverso ricami, cuciture e lavorazioni realizzate a mano. Ogni personalizzazione è pensata per essere diversa. Ogni dettaglio racconta qualcosa. Ogni capo diventa tuo.</p>
+        </div>
+    </section>
+
+    <!-- Creator Section -->
+    <section class="creator" id="customize">
+        <div class="creator-header fade-in">
+            <h2>Create Your ByHuman</h2>
+            <p>Choose a piece. Choose your story. Make it yours.</p>
+        </div>
+
+        <div class="creator-container">
+            <div class="creator-preview">
+                <img id="previewImage" src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="Preview">
+            </div>
+
+            <div class="creator-steps">
+                <!-- Step 01 -->
+                <div class="step active" id="step1">
+                    <div class="step-number">01 / Choose</div>
+                    <h3 class="step-title">Find Your Base</h3>
+                    <p class="step-subtitle">Select your garment category</p>
+                    
+                    <div class="categories-grid">
+                        <div class="category-card" data-category="tshirts">
+                            <h4>T-Shirts</h4>
+                        </div>
+                        <div class="category-card" data-category="hoodies">
+                            <h4>Hoodies</h4>
+                        </div>
+                        <div class="category-card" data-category="shirts">
+                            <h4>Shirts</h4>
+                        </div>
+                        <div class="category-card" data-category="jeans">
+                            <h4>Jeans</h4>
+                        </div>
+                        <div class="category-card" data-category="pants">
+                            <h4>Pants</h4>
+                        </div>
+                        <div class="category-card" data-category="shoes">
+                            <h4>Shoes</h4>
+                        </div>
+                        <div class="category-card" data-category="jackets">
+                            <h4>Jackets</h4>
+                        </div>
+                        <div class="category-card" data-category="accessories">
+                            <h4>Accessories</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="step" id="step2">
+                    <div class="step-number">02 / Express</div>
+                    <h3 class="step-title">Choose What Represents You</h3>
+                    <p class="step-subtitle">Select your hand embroidery design</p>
+
+                    <div class="collections">
+                        <div class="collection">
+                            <h4 class="collection-title">Japanese</h4>
+                            <div class="design-grid">
+                                <div class="design-card" data-design="japanese-tree">
+                                    <h5>Japanese Tree</h5>
+                                    <p>Inspired by Japanese nature and the idea of growth, balance and connection.</p>
+                                </div>
+                                <div class="design-card" data-design="sakura">
+                                    <h5>Sakura</h5>
+                                    <p>Delicate cherry blossom embroidery representing beauty and transience.</p>
+                                </div>
+                                <div class="design-card" data-design="lotus">
+                                    <h5>Lotus</h5>
+                                    <p>Sacred flower symbolizing purity and enlightenment.</p>
+                                </div>
+                                <div class="design-card" data-design="japanese-waves">
+                                    <h5>Japanese Waves</h5>
+                                    <p>Dynamic ocean waves inspired by traditional Japanese art.</p>
+                                </div>
+                                <div class="design-card" data-design="koi">
+                                    <h5>Koi</h5>
+                                    <p>Powerful fish representing perseverance and strength.</p>
+                                </div>
+                                <div class="design-card" data-design="dragon">
+                                    <h5>Dragon</h5>
+                                    <p>Mythical creature symbolizing power and wisdom.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collection">
+                            <h4 class="collection-title">Nature</h4>
+                            <div class="design-grid">
+                                <div class="design-card" data-design="flowers">
+                                    <h5>Flowers</h5>
+                                    <p>Botanical embroidery celebrating natural beauty.</p>
+                                </div>
+                                <div class="design-card" data-design="leaves">
+                                    <h5>Leaves</h5>
+                                    <p>Detailed leaf patterns with organic textures.</p>
+                                </div>
+                                <div class="design-card" data-design="branches">
+                                    <h5>Branches</h5>
+                                    <p>Minimalist branch designs with delicate stitching.</p>
+                                </div>
+                                <div class="design-card" data-design="mountains">
+                                    <h5>Mountains</h5>
+                                    <p>Majestic mountain landscapes in thread.</p>
+                                </div>
+                                <div class="design-card" data-design="botanical">
+                                    <h5>Botanical Elements</h5>
+                                    <p>Mixed botanical motifs with intricate details.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collection">
+                            <h4 class="collection-title">Elements</h4>
+                            <div class="design-grid">
+                                <div class="design-card" data-design="ocean-waves">
+                                    <h5>Ocean Waves</h5>
+                                    <p>Flowing water patterns with dynamic movement.</p>
+                                </div>
+                                <div class="design-card" data-design="moon">
+                                    <h5>Moon</h5>
+                                    <p>Celestial embroidery with mystical appeal.</p>
+                                </div>
+                                <div class="design-card" data-design="sun">
+                                    <h5>Sun</h5>
+                                    <p>Radiant sun design with warm energy.</p>
+                                </div>
+                                <div class="design-card" data-design="fire">
+                                    <h5>Fire</h5>
+                                    <p>Flame patterns with intense detail.</p>
+                                </div>
+                                <div class="design-card" data-design="wind">
+                                    <h5>Wind</h5>
+                                    <p>Air flow represented through flowing stitches.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="collection">
+                            <h4 class="collection-title">Symbols</h4>
+                            <div class="design-grid">
+                                <div class="design-card" data-design="initials">
+                                    <h5>Initials</h5>
+                                    <p>Personal monogram in elegant hand stitching.</p>
+                                </div>
+                                <div class="design-card" data-design="numbers">
+                                    <h5>Numbers</h5>
+                                    <p>Meaningful numbers crafted in thread.</p>
+                                </div>
+                                <div class="design-card" data-design="symbols">
+                                    <h5>Symbols</h5>
+                                    <p>Custom symbols with personal significance.</p>
+                                </div>
+                                <div class="design-card" data-design="icons">
+                                    <h5>Minimal Icons</h5>
+                                    <p>Simple yet powerful icon designs.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="step" id="step3">
+                    <div class="step-number">03 / Create</div>
+                    <h3 class="step-title">We Make It Real</h3>
+                    <p class="step-subtitle">Review your customization and place your order</p>
+
+                    <div class="options-group">
+                        <label>Position</label>
+                        <div class="options-list">
+                            <button class="option-button" data-option="position" data-value="front">Front</button>
+                            <button class="option-button" data-option="position" data-value="back">Back</button>
+                            <button class="option-button" data-option="position" data-value="chest">Chest</button>
+                            <button class="option-button" data-option="position" data-value="sleeve">Sleeve</button>
+                        </div>
+                    </div>
+
+                    <div class="options-group">
+                        <label>Size</label>
+                        <div class="options-list">
+                            <button class="option-button" data-option="size" data-value="small">Small</button>
+                            <button class="option-button" data-option="size" data-value="medium">Medium</button>
+                            <button class="option-button" data-option="size" data-value="large">Large</button>
+                            <button class="option-button" data-option="size" data-value="xl">XL</button>
+                        </div>
+                    </div>
+
+                    <div class="options-group">
+                        <label>Thread Color</label>
+                        <div class="thread-colors">
+                            <div class="thread-color selected" style="background: #000000;" data-color="black"></div>
+                            <div class="thread-color" style="background: #ffffff; border: 1px solid #ddd;" data-color="white"></div>
+                            <div class="thread-color" style="background: #c9a961;" data-color="gold"></div>
+                            <div class="thread-color" style="background: #8b0000;" data-color="red"></div>
+                            <div class="thread-color" style="background: #1e3a5f;" data-color="navy"></div>
+                            <div class="thread-color" style="background: #2d5016;" data-color="green"></div>
+                        </div>
+                    </div>
+
+                    <div class="summary-box">
+                        <h4 style="font-size: 1.2rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1.5rem;">Your ByHuman</h4>
+                        <div class="summary-item">
+                            <span class="summary-label">Garment</span>
+                            <span class="summary-value" id="summaryGarment">Not selected</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Design</span>
+                            <span class="summary-value" id="summaryDesign">Not selected</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Position</span>
+                            <span class="summary-value" id="summaryPosition">Not selected</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Technique</span>
+                            <span class="summary-value">Hand Embroidery</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Thread</span>
+                            <span class="summary-value" id="summaryThread">Black</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Size</span>
+                            <span class="summary-value" id="summarySize">Not selected</span>
+                        </div>
+                        <div class="price-total" id="priceTotal">€189.00</div>
+                        <button class="cta-button" style="width: 100%; margin-top: 2rem; padding: 1.2rem;">Order Your Piece</button>
+                    </div>
+                </div>
+
+                <!-- Artisanal Details -->
+                <div class="artisanal-details">
+                    <h3>Made by Hand.</h3>
+                    <p>Every piece is individually handcrafted. Slight variations in stitching, thread and texture are not imperfections. They are what make every piece unique.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="steps-grid">
+            <div class="step-block fade-in">
+                <div class="step-block-number">01</div>
+                <h3>Choose</h3>
+                <p>Find your base. Scegli il capo che vuoi trasformare.</p>
+            </div>
+            <div class="step-block fade-in">
+                <div class="step-block-number">02</div>
+                <h3>Express</h3>
+                <p>Choose your story. Scegli il ricamo che rappresenta il tuo stile.</p>
+            </div>
+            <div class="step-block fade-in">
+                <div class="step-block-number">03</div>
+                <h3>Create</h3>
+                <p>We handcraft it. Realizziamo manualmente il tuo capo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Handmade Process -->
+    <section class="handmade-process">
+        <div class="process-content">
+            <h2 class="process-title fade-in">From Thread<br>To Identity.</h2>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="process-step-number">01</div>
+                    <h4>Select</h4>
+                    <p>Selezioniamo il capo.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-step-number">02</div>
+                    <h4>Design</h4>
+                    <p>Scegliamo il ricamo.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-step-number">03</div>
+                    <h4>Stitch</h4>
+                    <p>Realizziamo la lavorazione a mano.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-step-number">04</div>
+                    <h4>Finish</h4>
+                    <p>Controlliamo ogni dettaglio.</p>
+                </div>
+                <div class="process-step fade-in">
+                    <div class="process-step-number">05</div>
+                    <h4>Deliver</h4>
+                    <p>Il capo viene preparato per il cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trends -->
+    <section class="trends" id="trends">
+        <div class="trends-header fade-in">
+            <h2>What's Human Now.</h2>
+        </div>
+        <div class="trends-grid">
+            <div class="trend-card fade-in">
+                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80" alt="Japanese-inspired embroidery">
+                <div class="trend-card-content">
+                    <h3>Japanese-Inspired Embroidery</h3>
+                    <p>Traditional motifs meet contemporary fashion through hand stitching.</p>
+                </div>
+            </div>
+            <div class="trend-card fade-in">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Botanical embroidery">
+                <div class="trend-card-content">
+                    <h3>Botanical Embroidery</h3>
+                    <p>Nature-inspired designs celebrating organic beauty and growth.</p>
+                </div>
+            </div>
+            <div class="trend-card fade-in">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&q=80" alt="Minimal stitching">
+                <div class="trend-card-content">
+                    <h3>Minimal Stitching</h3>
+                    <p>Less is more. Subtle details that speak volumes.</p>
+                </div>
+            </div>
+            <div class="trend-card fade-in">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" alt="Oversized embroidery">
+                <div class="trend-card-content">
+                    <h3>Oversized Embroidery</h3>
+                    <p>Bold statements through large-scale handcrafted designs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook -->
+    <section class="lookbook" id="lookbook">
+        <div class="lookbook-header fade-in">
+            <h2>Lookbook</h2>
+        </div>
+        <div class="lookbook-grid">
+            <div class="lookbook-item fade-in">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1200&q=80" alt="BYHUMAN Lookbook 001">
+                <div class="lookbook-label">ByHuman / 001</div>
+            </div>
+            <div class="lookbook-item fade-in">
+                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80" alt="Hand Embroidered">
+                <div class="lookbook-label">Hand Embroidered</div>
+            </div>
+            <div class="lookbook-item fade-in">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Japanese Collection">
+                <div class="lookbook-label">Japanese Collection</div>
+            </div>
+            <div class="lookbook-item fade-in">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80" alt="One of a Kind">
+                <div class="lookbook-label">One of a Kind</div>
+            </div>
+            <div class="lookbook-item fade-in">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="ByHuman Details">
+                <div class="lookbook-label">ByHuman / 002</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>BYHUMAN</h3>
+                    <p>Made by hand.<br>Defined by you.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="#collection">Collection</a></li>
+                        <li><a href="#customize">Customize</a></li>
+                        <li><a href="#trends">Trends</a></li>
+                        <li><a href="#lookbook">Lookbook</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#shipping">Shipping</a></li>
+                        <li><a href="#returns">Returns</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#tiktok">TikTok</a></li>
+                        <li><a href="#whatsapp">WhatsApp</a></li>
+                        <li><a href="#email">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 BYHUMAN. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        const threadLine = document.getElementById('threadLine');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+
+            // Thread line animation
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            threadLine.style.height = scrollPercent + '%';
+        });
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenu = document.getElementById('closeMenu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        // Close mobile menu when clicking on links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Creator functionality
+        let selectedCategory = null;
+        let selectedDesign = null;
+        let selectedPosition = null;
+        let selectedSize = null;
+        let selectedThreadColor = 'black';
+
+        // Category selection
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedCategory = card.dataset.category;
+                document.getElementById('summaryGarment').textContent = card.querySelector('h4').textContent;
+                
+                // Activate step 2
+                document.getElementById('step2').classList.add('active');
+                
+                // Scroll to step 2
+                setTimeout(() => {
+                    document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            });
+        });
+
+        // Design selection
+        document.querySelectorAll('.design-card').forEach(card => {
+            card.addEventListener('click', () => {
+                document.querySelectorAll('.design-card').forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+                selectedDesign = card.dataset.design;
+                document.getElementById('summaryDesign').textContent = card.querySelector('h5').textContent;
+                
+                // Update preview image (simulated)
+                const previewImage = document.getElementById('previewImage');
+                previewImage.style.opacity = '0.5';
+                setTimeout(() => {
+                    previewImage.style.opacity = '1';
+                }, 300);
+                
+                // Activate step 3
+                document.getElementById('step3').classList.add('active');
+                
+                // Scroll to step 3
+                setTimeout(() => {
+                    document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300);
+            });
+        });
+
+        // Option buttons
+        document.querySelectorAll('.option-button').forEach(button => {
+            button.addEventListener('click', () => {
+                const option = button.dataset.option;
+                const value = button.dataset.value;
+                
+                // Remove selected from siblings
+                button.parentElement.querySelectorAll('.option-button').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                button.classList.add('selected');
+                
+                if (option === 'position') {
+                    selectedPosition = value;
+                    document.getElementById('summaryPosition').textContent = value.charAt(0).toUpperCase() + value.slice(1);
+                } else if (option === 'size') {
+                    selectedSize = value;
+                    document.getElementById('summarySize').textContent = value.toUpperCase();
+                }
+            });
+        });
+
+        // Thread color selection
+        document.querySelectorAll('.thread-color').forEach(color => {
+            color.addEventListener('click', () => {
+                document.querySelectorAll('.thread-color').forEach(c => c.classList.remove('selected'));
+                color.classList.add('selected');
+                selectedThreadColor = color.dataset.color;
+                document.getElementById('summaryThread').textContent = color.dataset.color.charAt(0).toUpperCase() + color.dataset.color.slice(1);
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero image
+        window.addEventListener('scroll', () => {
+            const heroImage = document.querySelector('.hero-image img');
+            if (heroImage) {
+                const scrolled = window.pageYOffset;
+                heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
