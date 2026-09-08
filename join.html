@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BYHUMAN - Join the movement. Get exclusive access to new collections, behind-the-scenes content and handcrafted stories.">
+    <title>BYHUMAN - Join The Movement</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-white: #fafafa;
+            --color-gray-light: #e5e5e5;
+            --color-gray: #8a8a8a;
+            --color-gray-dark: #2a2a2a;
+            --color-beige: #f5f0e8;
+            --color-accent: #c9a961;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 2rem 4rem;
+            background: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+        }
+
+        header.scrolled {
+            padding: 1rem 4rem;
+            border-bottom: 1px solid var(--color-gray-light);
+        }
+
+        .header-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            color: var(--color-black);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-black);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 2px;
+            background: var(--color-black);
+            transition: all 0.3s var(--transition-smooth);
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Sidebar */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--transition-smooth);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--color-white);
+            z-index: 999;
+            padding: 6rem 3rem 3rem;
+            transition: right 0.5s var(--transition-smooth);
+            overflow-y: auto;
+        }
+
+        .sidebar-menu.active {
+            right: 0;
+        }
+
+        .sidebar-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .sidebar-menu nav a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-gray-light);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: var(--color-black);
+        }
+
+        .sidebar-menu nav a:hover {
+            padding-left: 20px;
+        }
+
+        /* Join Page Layout */
+        .join-page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-top: 90px;
+        }
+
+        /* Left Side - Editorial Image */
+        .join-visual {
+            position: relative;
+            background: var(--color-beige);
+            overflow: hidden;
+            min-height: 600px;
+        }
+
+        .join-visual-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: contrast(1.05);
+        }
+
+        .join-visual-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.3) 0%, rgba(10, 10, 10, 0.6) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 5rem;
+            color: var(--color-white);
+        }
+
+        .join-visual-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .join-visual-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 2rem;
+        }
+
+        .join-visual-quote {
+            font-size: 1.2rem;
+            font-weight: 300;
+            line-height: 1.6;
+            font-style: italic;
+            max-width: 500px;
+            border-left: 2px solid var(--color-white);
+            padding-left: 1.5rem;
+        }
+
+        /* Right Side - Form */
+        .join-form-section {
+            padding: 6rem 5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--color-white);
+        }
+
+        .join-form-container {
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .join-form-header {
+            margin-bottom: 3rem;
+        }
+
+        .join-form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .join-form-title {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .join-form-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Form Styles */
+        .join-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-black);
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            padding: 1rem 0;
+            border: none;
+            border-bottom: 1px solid var(--color-gray-light);
+            background: transparent;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            color: var(--color-black);
+            transition: border-color 0.3s var(--transition-smooth);
+            outline: none;
+        }
+
+        .form-group input:focus {
+            border-bottom-color: var(--color-black);
+        }
+
+        .form-group input::placeholder {
+            color: var(--color-gray);
+            font-weight: 300;
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-gray);
+            transition: color 0.3s;
+        }
+
+        .password-toggle:hover {
+            color: var(--color-black);
+        }
+
+        /* Newsletter Checkbox */
+        .newsletter-option {
+            padding: 1.5rem;
+            background: var(--color-beige);
+            border: 1px solid var(--color-gray-light);
+            transition: all 0.3s var(--transition-smooth);
+            cursor: pointer;
+        }
+
+        .newsletter-option:hover {
+            border-color: var(--color-black);
+        }
+
+        .newsletter-option.active {
+            border-color: var(--color-black);
+            background: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .newsletter-option.active .newsletter-title,
+        .newsletter-option.active .newsletter-desc {
+            color: var(--color-white);
+        }
+
+        .newsletter-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .newsletter-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 1px solid var(--color-gray);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .newsletter-option.active .newsletter-checkbox {
+            background: var(--color-white);
+            border-color: var(--color-white);
+        }
+
+        .newsletter-checkbox::after {
+            content: '✓';
+            color: var(--color-black);
+            font-weight: 900;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .newsletter-option.active .newsletter-checkbox::after {
+            opacity: 1;
+        }
+
+        .newsletter-title {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-black);
+        }
+
+        .newsletter-desc {
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.5;
+            color: var(--color-gray-dark);
+            margin-left: 2.1rem;
+        }
+
+        /* Terms */
+        .terms-option {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--color-gray);
+            line-height: 1.5;
+        }
+
+        .terms-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            margin-top: 2px;
+            cursor: pointer;
+            accent-color: var(--color-black);
+        }
+
+        .terms-option a {
+            color: var(--color-black);
+            text-decoration: underline;
+            font-weight: 500;
+        }
+
+        /* Submit Button */
+        .submit-button {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 1.2rem 2rem;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+            margin-top: 1rem;
+        }
+
+        .submit-button:hover {
+            background: var(--color-gray-dark);
+            transform: translateY(-2px);
+        }
+
+        .submit-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Divider */
+        .form-divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            color: var(--color-gray);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .form-divider::before,
+        .form-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--color-gray-light);
+        }
+
+        /* Login Link */
+        .login-link {
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--color-gray-dark);
+        }
+
+        .login-link a {
+            color: var(--color-black);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid var(--color-black);
+            padding-bottom: 2px;
+            transition: opacity 0.3s;
+        }
+
+        .login-link a:hover {
+            opacity: 0.6;
+        }
+
+        /* Success State */
+        .success-state {
+            display: none;
+            text-align: center;
+            padding: 3rem 0;
+            animation: fadeIn 0.6s var(--transition-smooth);
+        }
+
+        .success-state.active {
+            display: block;
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
+            border: 2px solid var(--color-black);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            animation: scaleIn 0.5s var(--transition-smooth);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0); }
+            to { transform: scale(1); }
+        }
+
+        .success-state h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .success-state p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: var(--color-gray-dark);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 8rem 4rem;
+            background: var(--color-beige);
+        }
+
+        .benefits-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .benefits-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .benefits-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .benefits-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        .benefit-number {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--color-black);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card p {
+            font-size: 0.95rem;
+            font-weight: 300;
+            color: var(--color-gray-dark);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-black);
+            color: var(--color-white);
+            padding: 6rem 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .footer-column h4 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-column a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+
+        .footer-column a:hover {
+            opacity: 0.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--color-gray-dark);
+            padding-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--color-gray);
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--transition-smooth);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            header {
+                padding: 1.5rem 2rem;
+            }
+
+            header.scrolled {
+                padding: 1rem 2rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .join-page {
+                grid-template-columns: 1fr;
+            }
+
+            .join-visual {
+                min-height: 400px;
+            }
+
+            .join-visual-overlay {
+                padding: 3rem;
+            }
+
+            .join-form-section {
+                padding: 4rem 2rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            .join-visual {
+                min-height: 350px;
+            }
+
+            .join-visual-overlay {
+                padding: 2rem;
+            }
+
+            .join-form-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .benefits-section {
+                padding: 5rem 1.5rem;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .sidebar-menu {
+                max-width: 100%;
+                padding: 5rem 2rem 2rem;
+            }
+
+            .sidebar-menu nav a {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">BYHUMAN</a>
+            <nav>
+                <a href="index.html#collection">Collection</a>
+                <a href="index.html#customize">Customize</a>
+                <a href="index.html#trends">Trends</a>
+                <a href="index.html#lookbook">Lookbook</a>
+                <a href="about.html">About</a>
+            </nav>
+            <div class="header-icons">
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <nav>
+            <a href="index.html#collection" onclick="closeMenu()">Collection</a>
+            <a href="index.html#customize" onclick="closeMenu()">Customize</a>
+            <a href="index.html#trends" onclick="closeMenu()">Trends</a>
+            <a href="index.html#lookbook" onclick="closeMenu()">Lookbook</a>
+            <a href="about.html" onclick="closeMenu()">About</a>
+            <a href="join.html" onclick="closeMenu()">Join</a>
+        </nav>
+    </div>
+
+    <!-- Join Page -->
+    <div class="join-page">
+        <!-- Left Side - Editorial Visual -->
+        <div class="join-visual">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80" alt="BYHUMAN artisan craftsmanship" class="join-visual-image">
+            <div class="join-visual-overlay">
+                <span class="join-visual-label">BYHUMAN / MEMBERSHIP</span>
+                <h1 class="join-visual-title">Join The<br>Movement.</h1>
+                <p class="join-visual-quote">"Every piece tells a story. Be part of the ones we create next."</p>
+            </div>
+        </div>
+
+        <!-- Right Side - Form -->
+        <div class="join-form-section">
+            <div class="join-form-container">
+                <div id="formContainer">
+                    <div class="join-form-header">
+                        <span class="join-form-label">Create Your Account</span>
+                        <h2 class="join-form-title">Be Part<br>Of The Story.</h2>
+                        <p class="join-form-subtitle">Join BYHUMAN to get exclusive access to new collections, behind-the-scenes content and handcrafted stories.</p>
+                    </div>
+
+                    <form class="join-form" id="joinForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="password-wrapper">
+                                <input type="password" id="password" name="password" placeholder="Create a password" required minlength="6">
+                                <button type="button" class="password-toggle" id="passwordToggle">Show</button>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Option -->
+                        <div class="newsletter-option active" id="newsletterOption">
+                            <div class="newsletter-header">
+                                <div class="newsletter-checkbox"></div>
+                                <span class="newsletter-title">Stay In The Loop</span>
+                            </div>
+                            <p class="newsletter-desc">Receive exclusive updates on new collections, artisan stories, early access to drops and members-only offers.</p>
+                            <input type="checkbox" id="newsletter" name="newsletter" checked style="display: none;">
+                        </div>
+
+                        <!-- Terms -->
+                        <label class="terms-option">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span>I agree to the <a href="#terms">Terms & Conditions</a> and <a href="#privacy">Privacy Policy</a> of BYHUMAN.</span>
+                        </label>
+
+                        <button type="submit" class="submit-button">Create Account</button>
+
+                        <div class="form-divider">or</div>
+
+                        <p class="login-link">Already a member? <a href="#login">Sign in here</a></p>
+                    </form>
+                </div>
+
+                <!-- Success State -->
+                <div class="success-state" id="successState">
+                    <div class="success-icon">✓</div>
+                    <h3>Welcome To<br>BYHUMAN.</h3>
+                    <p>Your account has been created. Check your inbox to confirm your email and start exploring our world of handcrafted fashion.</p>
+                    <a href="index.html" class="submit-button" style="display: inline-block; text-decoration: none;">Explore The Collection</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section">
+        <div class="benefits-container">
+            <div class="benefits-header fade-in">
+                <span class="benefits-label">Why Join BYHUMAN</span>
+                <h2 class="benefits-title">More Than<br>An Account.</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in">
+                    <div class="benefit-number">01</div>
+                    <h4>Early Access</h4>
+                    <p>Be the first to discover new collections and limited edition pieces before anyone else.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-number">02</div>
+                    <h4>Behind The Scenes</h4>
+                    <p>Exclusive content showing our artisans at work, from thread to identity.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-number">03</div>
+                    <h4>Members Only</h4>
+                    <p>Special offers, private events and invitations reserved for our community.</p>
+                </div>
+                <div class="benefit-card fade-in">
+                    <div class="benefit-number">04</div>
+                    <h4>Personal Updates</h4>
+                    <p>Track your custom pieces and receive updates on your handcrafted orders.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3>BYHUMAN</h3>
+                    <p>Made by hand.<br>Defined by you.</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html#collection">Collection</a></li>
+                        <li><a href="index.html#customize">Customize</a></li>
+                        <li><a href="index.html#trends">Trends</a></li>
+                        <li><a href="index.html#lookbook">Lookbook</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Information</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#shipping">Shipping</a></li>
+                        <li><a href="#returns">Returns</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="#instagram">Instagram</a></li>
+                        <li><a href="#tiktok">TikTok</a></li>
+                        <li><a href="#whatsapp">WhatsApp</a></li>
+                        <li><a href="#email">Email</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 BYHUMAN. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Sidebar Menu
+        const hamburger = document.getElementById('hamburger');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+        function openMenu() {
+            hamburger.classList.add('active');
+            sidebarMenu.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            sidebarMenu.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', openMenu);
+        sidebarOverlay.addEventListener('click', closeMenu);
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarMenu.classList.contains('active')) {
+                closeMenu();
+            }
+        });
+
+        // Password toggle
+        const passwordToggle = document.getElementById('passwordToggle');
+        const passwordInput = document.getElementById('password');
+
+        passwordToggle.addEventListener('click', () => {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            passwordToggle.textContent = type === 'password' ? 'Show' : 'Hide';
+        });
+
+        // Newsletter option toggle
+        const newsletterOption = document.getElementById('newsletterOption');
+        const newsletterCheckbox = document.getElementById('newsletter');
+
+        newsletterOption.addEventListener('click', () => {
+            newsletterOption.classList.toggle('active');
+            newsletterCheckbox.checked = !newsletterCheckbox.checked;
+        });
+
+        // Form submission
+        const joinForm = document.getElementById('joinForm');
+        const formContainer = document.getElementById('formContainer');
+        const successState = document.getElementById('successState');
+
+        joinForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                newsletter: document.getElementById('newsletter').checked,
+                terms: document.getElementById('terms').checked
+            };
+
+            // Validazione
+            if (!formData.terms) {
+                alert('Please accept the Terms & Conditions to continue.');
+                return;
+            }
+
+            // Simulazione invio (qui integrerai il tuo servizio reale)
+            // Opzioni reali: Formspree, Mailchimp, ConvertKit, backend personalizzato
+            console.log('Form data:', formData);
+
+            // Mostra stato di successo
+            formContainer.style.display = 'none';
+            successState.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
