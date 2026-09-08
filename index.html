@@ -39,36 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* Thread Line Animation */
-        .thread-line {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 2px;
-            height: 0;
-            background: var(--color-black);
-            z-index: 1000;
-            transition: height 0.3s var(--transition-smooth);
-        }
-
-        .thread-line::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--color-black);
-            border-radius: 50%;
-            animation: needlePulse 2s infinite;
-        }
-
-        @keyframes needlePulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
         /* Header */
         header {
             position: fixed;
@@ -194,13 +164,119 @@
             background: none;
             border: none;
             padding: 0;
+            z-index: 1001;
         }
 
         .hamburger span {
-            width: 25px;
+            width: 28px;
             height: 2px;
             background: var(--color-black);
+            transition: all 0.3s var(--transition-smooth);
+            transform-origin: center;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Sidebar Menu */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s var(--transition-smooth);
+        }
+
+        .sidebar-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .sidebar-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--color-white);
+            z-index: 999;
+            padding: 6rem 3rem 3rem;
+            transition: right 0.5s var(--transition-smooth);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-menu.active {
+            right: 0;
+        }
+
+        .sidebar-menu nav {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .sidebar-menu nav a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--color-gray-light);
             transition: all 0.3s;
+            text-decoration: none;
+            color: var(--color-black);
+        }
+
+        .sidebar-menu nav a:hover {
+            padding-left: 20px;
+            opacity: 0.7;
+        }
+
+        .sidebar-menu .cta-button {
+            margin-top: 2rem;
+            text-align: center;
+            padding: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .sidebar-social {
+            margin-top: auto;
+            padding-top: 3rem;
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .sidebar-social a {
+            color: var(--color-black);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: opacity 0.3s;
+        }
+
+        .sidebar-social a:hover {
+            opacity: 0.6;
         }
 
         /* Hero Section */
@@ -1013,69 +1089,51 @@
             footer {
                 padding: 4rem 1rem 2rem;
             }
+
+            .sidebar-menu {
+                max-width: 100%;
+                padding: 5rem 2rem 2rem;
+            }
+
+            .sidebar-menu nav a {
+                font-size: 1.5rem;
+            }
         }
 
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--color-white);
-            z-index: 998;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s;
-        }
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 2.5rem;
+            }
 
-        .mobile-menu.active {
-            opacity: 1;
-            pointer-events: all;
-        }
+            .section-title {
+                font-size: 2rem;
+            }
 
-        .mobile-menu a {
-            font-size: 2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            color: var(--color-black);
-        }
+            .step-block-number {
+                font-size: 5rem;
+            }
 
-        .close-menu {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
+            .creator-preview {
+                height: 300px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Thread Line -->
-    <div class="thread-line" id="threadLine"></div>
-
     <!-- Header -->
     <header id="header">
         <div class="header-container">
-            <a href="#" class="logo">BYHUMAN</a>
+            <a href="index.html" class="logo">BYHUMAN</a>
             <nav>
                 <a href="#collection">Collection</a>
                 <a href="#customize">Customize</a>
                 <a href="#trends">Trends</a>
                 <a href="#lookbook">Lookbook</a>
-                <a href="#about">About</a>
+                <a href="about.html">About</a>
             </nav>
             <div class="header-icons">
                 <button class="icon-button" aria-label="Account">👤</button>
-                <button class="icon-button" aria-label="Cart"></button>
+                <button class="icon-button" aria-label="Cart">🛒</button>
                 <a href="#customize" class="cta-button">Start Creating</a>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
                     <span></span>
@@ -1086,15 +1144,22 @@
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <button class="close-menu" id="closeMenu">✕</button>
-        <a href="#collection">Collection</a>
-        <a href="#customize">Customize</a>
-        <a href="#trends">Trends</a>
-        <a href="#lookbook">Lookbook</a>
-        <a href="#about">About</a>
-        <a href="#customize" class="cta-button">Start Creating</a>
+    <!-- Mobile Sidebar Menu -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <div class="sidebar-menu" id="sidebarMenu">
+        <nav>
+            <a href="#collection" onclick="closeMenu()">Collection</a>
+            <a href="#customize" onclick="closeMenu()">Customize</a>
+            <a href="#trends" onclick="closeMenu()">Trends</a>
+            <a href="#lookbook" onclick="closeMenu()">Lookbook</a>
+            <a href="about.html" onclick="closeMenu()">About</a>
+            <a href="#customize" class="cta-button" onclick="closeMenu()">Start Creating</a>
+        </nav>
+        <div class="sidebar-social">
+            <a href="#instagram">Instagram</a>
+            <a href="#tiktok">TikTok</a>
+            <a href="#whatsapp">WhatsApp</a>
+        </div>
     </div>
 
     <!-- Hero Section -->
@@ -1496,7 +1561,7 @@
                         <li><a href="#customize">Customize</a></li>
                         <li><a href="#trends">Trends</a></li>
                         <li><a href="#lookbook">Lookbook</a></li>
-                        <li><a href="#about">About</a></li>
+                        <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -1528,7 +1593,6 @@
     <script>
         // Header scroll effect
         const header = document.getElementById('header');
-        const threadLine = document.getElementById('threadLine');
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
@@ -1536,30 +1600,35 @@
             } else {
                 header.classList.remove('scrolled');
             }
-
-            // Thread line animation
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            threadLine.style.height = scrollPercent + '%';
         });
 
-        // Mobile menu
+        // Mobile Sidebar Menu
         const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const closeMenu = document.getElementById('closeMenu');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
 
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
+        function openMenu() {
+            hamburger.classList.add('active');
+            sidebarMenu.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
-        closeMenu.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            sidebarMenu.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
 
-        // Close mobile menu when clicking on links
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
+        hamburger.addEventListener('click', openMenu);
+        sidebarOverlay.addEventListener('click', closeMenu);
+
+        // Close menu when pressing Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && sidebarMenu.classList.contains('active')) {
+                closeMenu();
+            }
         });
 
         // Scroll animations
@@ -1595,10 +1664,8 @@
                 selectedCategory = card.dataset.category;
                 document.getElementById('summaryGarment').textContent = card.querySelector('h4').textContent;
                 
-                // Activate step 2
                 document.getElementById('step2').classList.add('active');
                 
-                // Scroll to step 2
                 setTimeout(() => {
                     document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 300);
@@ -1613,17 +1680,14 @@
                 selectedDesign = card.dataset.design;
                 document.getElementById('summaryDesign').textContent = card.querySelector('h5').textContent;
                 
-                // Update preview image (simulated)
                 const previewImage = document.getElementById('previewImage');
                 previewImage.style.opacity = '0.5';
                 setTimeout(() => {
                     previewImage.style.opacity = '1';
                 }, 300);
                 
-                // Activate step 3
                 document.getElementById('step3').classList.add('active');
                 
-                // Scroll to step 3
                 setTimeout(() => {
                     document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 300);
@@ -1636,7 +1700,6 @@
                 const option = button.dataset.option;
                 const value = button.dataset.value;
                 
-                // Remove selected from siblings
                 button.parentElement.querySelectorAll('.option-button').forEach(btn => {
                     btn.classList.remove('selected');
                 });
@@ -1676,7 +1739,7 @@
             });
         });
 
-        // Add parallax effect to hero image
+        // Parallax effect
         window.addEventListener('scroll', () => {
             const heroImage = document.querySelector('.hero-image img');
             if (heroImage) {
