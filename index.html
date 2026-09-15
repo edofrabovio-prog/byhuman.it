@@ -31,70 +31,26 @@
             overflow-x: hidden;
         }
 
-        /* HEADER */
-        header {
-            position: fixed; top: 0; left: 0; right: 0;
-            z-index: 999; padding: 2rem 4rem;
-            background: rgba(250, 250, 250, 0.95);
-            backdrop-filter: blur(20px);
-            transition: all 0.4s var(--transition-smooth);
-            border-bottom: 1px solid transparent;
-        }
-        header.scrolled { padding: 1rem 4rem; border-bottom: 1px solid var(--color-gray-light); }
-        .header-container {
-            max-width: 1600px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-        }
-        .logo {
-            font-size: 1.5rem; font-weight: 900;
-            letter-spacing: 0.2em; color: var(--color-black);
-            text-decoration: none;
-        }
-        nav { display: flex; gap: 3rem; align-items: center; }
-        nav a {
-            text-decoration: none; color: var(--color-black);
-            font-size: 0.85rem; font-weight: 500;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            transition: opacity 0.3s; position: relative;
-        }
-        nav a::after {
-            content: ''; position: absolute; bottom: -5px; left: 0;
-            width: 0; height: 1px; background: var(--color-black);
-            transition: width 0.3s var(--transition-smooth);
-        }
-        nav a:hover::after { width: 100%; }
-        .cta-button {
-            background: var(--color-black); color: var(--color-white);
-            padding: 0.8rem 2rem; font-size: 0.85rem; font-weight: 600;
-            letter-spacing: 0.1em; text-transform: uppercase;
-            border: none; cursor: pointer;
-            transition: all 0.3s var(--transition-smooth);
-            text-decoration: none; display: inline-block;
-        }
-        .cta-button:hover { background: var(--color-gray-dark); transform: translateY(-2px); }
-        .cta-button.secondary {
-            background: transparent; color: var(--color-black);
-            border: 1px solid var(--color-black);
-        }
-        .cta-button.secondary:hover { background: var(--color-black); color: var(--color-white); }
-        .header-icons { display: flex; gap: 1.5rem; align-items: center; }
-        .icon-button {
-            background: none; border: none; cursor: pointer;
-            font-size: 1.2rem; color: var(--color-black);
-            transition: opacity 0.3s;
-        }
-        .icon-button:hover { opacity: 0.6; }
-        .hamburger {
-            display: none; flex-direction: column; gap: 5px;
-            cursor: pointer; background: none; border: none; padding: 0; z-index: 1001;
-        }
-        .hamburger span {
-            width: 28px; height: 2px; background: var(--color-black);
-            transition: all 0.3s var(--transition-smooth); transform-origin: center;
-        }
-        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        <header id="header">
+    <div class="header-container">
+        <a href="index.html" class="logo">BYHUMAN</a>
+        <nav class="desktop-nav">
+            <a href="#collection">Collection</a>
+            <a href="#customize">Customize</a>
+            <a href="#trends">Trends</a>
+            <a href="#lookbook">Lookbook</a>
+            <a href="about.html">About</a>
+        </nav>
+        <div class="header-actions">
+            <a href="#customize" class="cta-button desktop-cta">Start Creating</a>
+            <button class="hamburger" id="hamburger" aria-label="Apri menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+</header>
 
         /* SIDEBAR MOBILE */
         .sidebar-overlay {
