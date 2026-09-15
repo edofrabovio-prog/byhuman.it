@@ -22,6 +22,48 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        /* Blocco scroll orizzontale su mobile */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Previeni overflow da immagini e elementi */
+img, video, svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix per elementi che sforano */
+* {
+    box-sizing: border-box;
+}
+
+/* Fix iOS Safari - previene zoom su input */
+input, textarea, select {
+    font-size: 16px; /* Evita zoom automatico su iOS */
+}
+
+/* Fix per grid e flex che possono sforare */
+.lookbook-grid,
+.trends-grid,
+.values-grid,
+.categories-grid,
+.design-grid,
+.footer-top {
+    min-width: 0;
+}
+
+/* Fix per numeri grandi che possono uscire */
+.step-block-number,
+.process-step-number,
+.process-number {
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
         html { scroll-behavior: smooth; }
         body {
             font-family: var(--font-main);
