@@ -599,6 +599,7 @@
             font-size: 0.85rem;
             font-weight: 500;
             transition: all 0.3s var(--transition-smooth);
+            font-family: var(--font-main);
         }
 
         .option-button:hover {
@@ -692,6 +693,209 @@
             max-width: 800px;
             margin: 0 auto;
             font-style: italic;
+        }
+
+        /* BRING YOUR OWN SECTION */
+        .bring-your-own {
+            padding: 10rem 4rem;
+            background: var(--color-beige);
+        }
+
+        .byo-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .byo-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .byo-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-gray);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .byo-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .byo-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: var(--color-gray-dark);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .byo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+        }
+
+        .byo-info {
+            position: sticky;
+            top: 120px;
+        }
+
+        .byo-info-image {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            filter: contrast(1.05);
+        }
+
+        .byo-info h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .byo-info p {
+            font-size: 1.05rem;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--color-gray-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .byo-features {
+            list-style: none;
+            margin-top: 2rem;
+        }
+
+        .byo-features li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-gray-light);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .byo-features li::before {
+            content: '✦';
+            color: var(--color-black);
+            font-size: 1.2rem;
+        }
+
+        .byo-form {
+            background: var(--color-white);
+            padding: 3rem;
+            border: 1px solid var(--color-gray-light);
+        }
+
+        .byo-form h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .byo-form > p {
+            font-size: 0.95rem;
+            color: var(--color-gray);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+        }
+
+        .byo-form .form-group {
+            margin-bottom: 1.8rem;
+        }
+
+        .byo-form label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.7rem;
+        }
+
+        .byo-form input[type="text"],
+        .byo-form input[type="email"],
+        .byo-form select,
+        .byo-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--color-gray-light);
+            background: var(--color-white);
+            font-family: var(--font-main);
+            font-size: 1rem;
+            color: var(--color-black);
+            transition: border-color 0.3s var(--transition-smooth);
+            outline: none;
+        }
+
+        .byo-form input:focus,
+        .byo-form select:focus,
+        .byo-form textarea:focus {
+            border-color: var(--color-black);
+        }
+
+        .byo-form textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .byo-form select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0a0a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1rem;
+        }
+
+        .whatsapp-button {
+            background: #25D366;
+            color: var(--color-white);
+            padding: 1.2rem 2rem;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-smooth);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            text-decoration: none;
+            margin-top: 1rem;
+        }
+
+        .whatsapp-button:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
         }
 
         /* How It Works */
@@ -1025,14 +1229,20 @@
                 gap: 3rem;
             }
 
-            .creator-container {
+            .creator-container,
+            .byo-content {
                 grid-template-columns: 1fr;
             }
 
-            .creator-preview {
+            .creator-preview,
+            .byo-info {
                 position: relative;
                 top: 0;
                 height: 400px;
+            }
+
+            .byo-info-image {
+                height: 350px;
             }
 
             .steps-grid {
@@ -1074,11 +1284,13 @@
             .how-it-works,
             .handmade-process,
             .trends,
-            .lookbook {
+            .lookbook,
+            .bring-your-own {
                 padding: 5rem 1rem;
             }
 
-            .step {
+            .step,
+            .byo-form {
                 padding: 2rem 1.5rem;
             }
 
@@ -1105,7 +1317,8 @@
                 font-size: 2.5rem;
             }
 
-            .section-title {
+            .section-title,
+            .byo-title {
                 font-size: 2rem;
             }
 
@@ -1113,7 +1326,8 @@
                 font-size: 5rem;
             }
 
-            .creator-preview {
+            .creator-preview,
+            .byo-info {
                 height: 300px;
             }
         }
@@ -1132,8 +1346,6 @@
                 <a href="about.html">About</a>
             </nav>
             <div class="header-icons">
-                <button class="icon-button" aria-label="Account">👤</button>
-                <button class="icon-button" aria-label="Cart">🛒</button>
                 <a href="#customize" class="cta-button">Start Creating</a>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
                     <span></span>
@@ -1150,6 +1362,7 @@
         <nav>
             <a href="#collection" onclick="closeMenu()">Collection</a>
             <a href="#customize" onclick="closeMenu()">Customize</a>
+            <a href="#bring-your-own" onclick="closeMenu()">Bring Your Own</a>
             <a href="#trends" onclick="closeMenu()">Trends</a>
             <a href="#lookbook" onclick="closeMenu()">Lookbook</a>
             <a href="about.html" onclick="closeMenu()">About</a>
@@ -1158,7 +1371,7 @@
         <div class="sidebar-social">
             <a href="#instagram">Instagram</a>
             <a href="#tiktok">TikTok</a>
-            <a href="#whatsapp">WhatsApp</a>
+            <a href="https://wa.me/393517291704" target="_blank">WhatsApp</a>
         </div>
     </div>
 
@@ -1170,7 +1383,7 @@
                 <p class="hero-subtitle">Choose a piece.<br>Choose what represents you.<br>We handcraft the rest.</p>
                 <div class="hero-cta">
                     <a href="#customize" class="cta-button">Start Creating</a>
-                    <a href="#collection" class="cta-button secondary">Explore the Collection</a>
+                    <a href="#bring-your-own" class="cta-button secondary">Bring Your Own</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1207,28 +1420,25 @@
                     <p class="step-subtitle">Select your garment category</p>
                     
                     <div class="categories-grid">
-                        <div class="category-card" data-category="tshirts">
+                        <div class="category-card" data-category="T-Shirts">
                             <h4>T-Shirts</h4>
                         </div>
-                        <div class="category-card" data-category="hoodies">
+                        <div class="category-card" data-category="Hoodies">
                             <h4>Hoodies</h4>
                         </div>
-                        <div class="category-card" data-category="shirts">
+                        <div class="category-card" data-category="Shirts">
                             <h4>Shirts</h4>
                         </div>
-                        <div class="category-card" data-category="jeans">
+                        <div class="category-card" data-category="Jeans">
                             <h4>Jeans</h4>
                         </div>
-                        <div class="category-card" data-category="pants">
+                        <div class="category-card" data-category="Pants">
                             <h4>Pants</h4>
                         </div>
-                        <div class="category-card" data-category="shoes">
-                            <h4>Shoes</h4>
-                        </div>
-                        <div class="category-card" data-category="jackets">
+                        <div class="category-card" data-category="Jackets">
                             <h4>Jackets</h4>
                         </div>
-                        <div class="category-card" data-category="accessories">
+                        <div class="category-card" data-category="Accessories">
                             <h4>Accessories</h4>
                         </div>
                     </div>
@@ -1244,27 +1454,27 @@
                         <div class="collection">
                             <h4 class="collection-title">Japanese</h4>
                             <div class="design-grid">
-                                <div class="design-card" data-design="japanese-tree">
+                                <div class="design-card" data-design="Japanese Tree">
                                     <h5>Japanese Tree</h5>
                                     <p>Inspired by Japanese nature and the idea of growth, balance and connection.</p>
                                 </div>
-                                <div class="design-card" data-design="sakura">
+                                <div class="design-card" data-design="Sakura">
                                     <h5>Sakura</h5>
                                     <p>Delicate cherry blossom embroidery representing beauty and transience.</p>
                                 </div>
-                                <div class="design-card" data-design="lotus">
+                                <div class="design-card" data-design="Lotus">
                                     <h5>Lotus</h5>
                                     <p>Sacred flower symbolizing purity and enlightenment.</p>
                                 </div>
-                                <div class="design-card" data-design="japanese-waves">
+                                <div class="design-card" data-design="Japanese Waves">
                                     <h5>Japanese Waves</h5>
                                     <p>Dynamic ocean waves inspired by traditional Japanese art.</p>
                                 </div>
-                                <div class="design-card" data-design="koi">
+                                <div class="design-card" data-design="Koi">
                                     <h5>Koi</h5>
                                     <p>Powerful fish representing perseverance and strength.</p>
                                 </div>
-                                <div class="design-card" data-design="dragon">
+                                <div class="design-card" data-design="Dragon">
                                     <h5>Dragon</h5>
                                     <p>Mythical creature symbolizing power and wisdom.</p>
                                 </div>
@@ -1274,23 +1484,23 @@
                         <div class="collection">
                             <h4 class="collection-title">Nature</h4>
                             <div class="design-grid">
-                                <div class="design-card" data-design="flowers">
+                                <div class="design-card" data-design="Flowers">
                                     <h5>Flowers</h5>
                                     <p>Botanical embroidery celebrating natural beauty.</p>
                                 </div>
-                                <div class="design-card" data-design="leaves">
+                                <div class="design-card" data-design="Leaves">
                                     <h5>Leaves</h5>
                                     <p>Detailed leaf patterns with organic textures.</p>
                                 </div>
-                                <div class="design-card" data-design="branches">
+                                <div class="design-card" data-design="Branches">
                                     <h5>Branches</h5>
                                     <p>Minimalist branch designs with delicate stitching.</p>
                                 </div>
-                                <div class="design-card" data-design="mountains">
+                                <div class="design-card" data-design="Mountains">
                                     <h5>Mountains</h5>
                                     <p>Majestic mountain landscapes in thread.</p>
                                 </div>
-                                <div class="design-card" data-design="botanical">
+                                <div class="design-card" data-design="Botanical Elements">
                                     <h5>Botanical Elements</h5>
                                     <p>Mixed botanical motifs with intricate details.</p>
                                 </div>
@@ -1300,23 +1510,23 @@
                         <div class="collection">
                             <h4 class="collection-title">Elements</h4>
                             <div class="design-grid">
-                                <div class="design-card" data-design="ocean-waves">
+                                <div class="design-card" data-design="Ocean Waves">
                                     <h5>Ocean Waves</h5>
                                     <p>Flowing water patterns with dynamic movement.</p>
                                 </div>
-                                <div class="design-card" data-design="moon">
+                                <div class="design-card" data-design="Moon">
                                     <h5>Moon</h5>
                                     <p>Celestial embroidery with mystical appeal.</p>
                                 </div>
-                                <div class="design-card" data-design="sun">
+                                <div class="design-card" data-design="Sun">
                                     <h5>Sun</h5>
                                     <p>Radiant sun design with warm energy.</p>
                                 </div>
-                                <div class="design-card" data-design="fire">
+                                <div class="design-card" data-design="Fire">
                                     <h5>Fire</h5>
                                     <p>Flame patterns with intense detail.</p>
                                 </div>
-                                <div class="design-card" data-design="wind">
+                                <div class="design-card" data-design="Wind">
                                     <h5>Wind</h5>
                                     <p>Air flow represented through flowing stitches.</p>
                                 </div>
@@ -1326,19 +1536,19 @@
                         <div class="collection">
                             <h4 class="collection-title">Symbols</h4>
                             <div class="design-grid">
-                                <div class="design-card" data-design="initials">
+                                <div class="design-card" data-design="Initials">
                                     <h5>Initials</h5>
                                     <p>Personal monogram in elegant hand stitching.</p>
                                 </div>
-                                <div class="design-card" data-design="numbers">
+                                <div class="design-card" data-design="Numbers">
                                     <h5>Numbers</h5>
                                     <p>Meaningful numbers crafted in thread.</p>
                                 </div>
-                                <div class="design-card" data-design="symbols">
+                                <div class="design-card" data-design="Symbols">
                                     <h5>Symbols</h5>
                                     <p>Custom symbols with personal significance.</p>
                                 </div>
-                                <div class="design-card" data-design="icons">
+                                <div class="design-card" data-design="Minimal Icons">
                                     <h5>Minimal Icons</h5>
                                     <p>Simple yet powerful icon designs.</p>
                                 </div>
@@ -1351,37 +1561,37 @@
                 <div class="step" id="step3">
                     <div class="step-number">03 / Create</div>
                     <h3 class="step-title">We Make It Real</h3>
-                    <p class="step-subtitle">Review your customization and place your order</p>
+                    <p class="step-subtitle">Review your customization and contact us on WhatsApp to finalize your order</p>
 
                     <div class="options-group">
                         <label>Position</label>
                         <div class="options-list">
-                            <button class="option-button" data-option="position" data-value="front">Front</button>
-                            <button class="option-button" data-option="position" data-value="back">Back</button>
-                            <button class="option-button" data-option="position" data-value="chest">Chest</button>
-                            <button class="option-button" data-option="position" data-value="sleeve">Sleeve</button>
+                            <button class="option-button" data-option="position" data-value="Front">Front</button>
+                            <button class="option-button" data-option="position" data-value="Back">Back</button>
+                            <button class="option-button" data-option="position" data-value="Chest">Chest</button>
+                            <button class="option-button" data-option="position" data-value="Sleeve">Sleeve</button>
                         </div>
                     </div>
 
                     <div class="options-group">
                         <label>Size</label>
                         <div class="options-list">
-                            <button class="option-button" data-option="size" data-value="small">Small</button>
-                            <button class="option-button" data-option="size" data-value="medium">Medium</button>
-                            <button class="option-button" data-option="size" data-value="large">Large</button>
-                            <button class="option-button" data-option="size" data-value="xl">XL</button>
+                            <button class="option-button" data-option="size" data-value="S">S</button>
+                            <button class="option-button" data-option="size" data-value="M">M</button>
+                            <button class="option-button" data-option="size" data-value="L">L</button>
+                            <button class="option-button" data-option="size" data-value="XL">XL</button>
                         </div>
                     </div>
 
                     <div class="options-group">
                         <label>Thread Color</label>
                         <div class="thread-colors">
-                            <div class="thread-color selected" style="background: #000000;" data-color="black"></div>
-                            <div class="thread-color" style="background: #ffffff; border: 1px solid #ddd;" data-color="white"></div>
-                            <div class="thread-color" style="background: #c9a961;" data-color="gold"></div>
-                            <div class="thread-color" style="background: #8b0000;" data-color="red"></div>
-                            <div class="thread-color" style="background: #1e3a5f;" data-color="navy"></div>
-                            <div class="thread-color" style="background: #2d5016;" data-color="green"></div>
+                            <div class="thread-color selected" style="background: #000000;" data-color="Black"></div>
+                            <div class="thread-color" style="background: #ffffff; border: 1px solid #ddd;" data-color="White"></div>
+                            <div class="thread-color" style="background: #c9a961;" data-color="Gold"></div>
+                            <div class="thread-color" style="background: #8b0000;" data-color="Red"></div>
+                            <div class="thread-color" style="background: #1e3a5f;" data-color="Navy"></div>
+                            <div class="thread-color" style="background: #2d5016;" data-color="Green"></div>
                         </div>
                     </div>
 
@@ -1411,8 +1621,12 @@
                             <span class="summary-label">Size</span>
                             <span class="summary-value" id="summarySize">Not selected</span>
                         </div>
-                        <div class="price-total" id="priceTotal">€189.00</div>
-                        <button class="cta-button" style="width: 100%; margin-top: 2rem; padding: 1.2rem;">Order Your Piece</button>
+                        <div class="price-total">Starting from €189.00</div>
+                        <p style="text-align: center; font-size: 0.85rem; color: var(--color-gray); margin-top: 0.5rem; font-weight: 300;">Final price confirmed via WhatsApp</p>
+                        <button class="whatsapp-button" id="orderWhatsApp">
+                            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                            Order Your Piece
+                        </button>
                     </div>
                 </div>
 
@@ -1425,362 +1639,80 @@
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works">
-        <div class="steps-grid">
-            <div class="step-block fade-in">
-                <div class="step-block-number">01</div>
-                <h3>Choose</h3>
-                <p>Find your base. Scegli il capo che vuoi trasformare.</p>
+    <!-- BRING YOUR OWN SECTION -->
+    <section class="bring-your-own" id="bring-your-own">
+        <div class="byo-container">
+            <div class="byo-header fade-in">
+                <span class="byo-label">BYHUMAN / SERVICE</span>
+                <h2 class="byo-title">Bring Your<br>Own Piece.</h2>
+                <p class="byo-subtitle">Already have a garment you love? We'll transform it into something uniquely yours through hand embroidery and artisanal stitching.</p>
             </div>
-            <div class="step-block fade-in">
-                <div class="step-block-number">02</div>
-                <h3>Express</h3>
-                <p>Choose your story. Scegli il ricamo che rappresenta il tuo stile.</p>
-            </div>
-            <div class="step-block fade-in">
-                <div class="step-block-number">03</div>
-                <h3>Create</h3>
-                <p>We handcraft it. Realizziamo manualmente il tuo capo.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- Handmade Process -->
-    <section class="handmade-process">
-        <div class="process-content">
-            <h2 class="process-title fade-in">From Thread<br>To Identity.</h2>
-            <div class="process-steps">
-                <div class="process-step fade-in">
-                    <div class="process-step-number">01</div>
-                    <h4>Select</h4>
-                    <p>Selezioniamo il capo.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <div class="process-step-number">02</div>
-                    <h4>Design</h4>
-                    <p>Scegliamo il ricamo.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <div class="process-step-number">03</div>
-                    <h4>Stitch</h4>
-                    <p>Realizziamo la lavorazione a mano.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <div class="process-step-number">04</div>
-                    <h4>Finish</h4>
-                    <p>Controlliamo ogni dettaglio.</p>
-                </div>
-                <div class="process-step fade-in">
-                    <div class="process-step-number">05</div>
-                    <h4>Deliver</h4>
-                    <p>Il capo viene preparato per il cliente.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trends -->
-    <section class="trends" id="trends">
-        <div class="trends-header fade-in">
-            <h2>What's Human Now.</h2>
-        </div>
-        <div class="trends-grid">
-            <div class="trend-card fade-in">
-                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&q=80" alt="Japanese-inspired embroidery">
-                <div class="trend-card-content">
-                    <h3>Japanese-Inspired Embroidery</h3>
-                    <p>Traditional motifs meet contemporary fashion through hand stitching.</p>
-                </div>
-            </div>
-            <div class="trend-card fade-in">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Botanical embroidery">
-                <div class="trend-card-content">
-                    <h3>Botanical Embroidery</h3>
-                    <p>Nature-inspired designs celebrating organic beauty and growth.</p>
-                </div>
-            </div>
-            <div class="trend-card fade-in">
-                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=600&q=80" alt="Minimal stitching">
-                <div class="trend-card-content">
-                    <h3>Minimal Stitching</h3>
-                    <p>Less is more. Subtle details that speak volumes.</p>
-                </div>
-            </div>
-            <div class="trend-card fade-in">
-                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=600&q=80" alt="Oversized embroidery">
-                <div class="trend-card-content">
-                    <h3>Oversized Embroidery</h3>
-                    <p>Bold statements through large-scale handcrafted designs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Lookbook -->
-    <section class="lookbook" id="lookbook">
-        <div class="lookbook-header fade-in">
-            <h2>Lookbook</h2>
-        </div>
-        <div class="lookbook-grid">
-            <div class="lookbook-item fade-in">
-                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=1200&q=80" alt="BYHUMAN Lookbook 001">
-                <div class="lookbook-label">ByHuman / 001</div>
-            </div>
-            <div class="lookbook-item fade-in">
-                <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80" alt="Hand Embroidered">
-                <div class="lookbook-label">Hand Embroidered</div>
-            </div>
-            <div class="lookbook-item fade-in">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80" alt="Japanese Collection">
-                <div class="lookbook-label">Japanese Collection</div>
-            </div>
-            <div class="lookbook-item fade-in">
-                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?w=800&q=80" alt="One of a Kind">
-                <div class="lookbook-label">One of a Kind</div>
-            </div>
-            <div class="lookbook-item fade-in">
-                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?w=800&q=80" alt="ByHuman Details">
-                <div class="lookbook-label">ByHuman / 002</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <h3>BYHUMAN</h3>
-                    <p>Made by hand.<br>Defined by you.</p>
-                </div>
-                <div class="footer-column">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="#collection">Collection</a></li>
-                        <li><a href="#customize">Customize</a></li>
-                        <li><a href="#trends">Trends</a></li>
-                        <li><a href="#lookbook">Lookbook</a></li>
-                        <li><a href="about.html">About</a></li>
+            <div class="byo-content">
+                <div class="byo-info fade-in">
+                    <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=800&q=80" alt="Artisan hand embroidery detail" class="byo-info-image">
+                    <h3>Your Garment.<br>Our Craft.</h3>
+                    <p>We believe the best pieces are the ones that already carry your story. A vintage jacket, a pair of jeans that fit perfectly, a shirt with sentimental value — bring it to us and we'll give it a new life.</p>
+                    <p>Our artisans will work directly with you to understand your vision and create a custom embroidery that respects the original piece while adding a new layer of meaning.</p>
+                    <ul class="byo-features">
+                        <li>Free initial consultation</li>
+                        <li>Personalized design proposal</li>
+                        <li>Handcrafted exclusively for you</li>
+                        <li>Flexible delivery options</li>
+                        <li>Direct artisan communication</li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Information</h4>
-                    <ul>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#shipping">Shipping</a></li>
-                        <li><a href="#returns">Returns</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms & Conditions</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Contact</h4>
-                    <ul>
-                        <li><a href="#instagram">Instagram</a></li>
-                        <li><a href="#tiktok">TikTok</a></li>
-                        <li><a href="#whatsapp">WhatsApp</a></li>
-                        <li><a href="#email">Email</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2026 BYHUMAN. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
 
-    <script>
-        // Header scroll effect
-        const header = document.getElementById('header');
+                <div class="byo-form fade-in">
+                    <h4>Tell Us About Your Piece</h4>
+                    <p>Fill in the details and we'll contact you on WhatsApp to discuss your project.</p>
+                    
+                    <form id="byoForm">
+                        <div class="form-group">
+                            <label for="byoName">Your Name</label>
+                            <input type="text" id="byoName" placeholder="Enter your name" required>
+                        </div>
 
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
+                        <div class="form-group">
+                            <label for="byoGarment">Garment Type</label>
+                            <select id="byoGarment" required>
+                                <option value="">Select garment type</option>
+                                <option value="T-Shirt">T-Shirt</option>
+                                <option value="Hoodie">Hoodie</option>
+                                <option value="Shirt">Shirt</option>
+                                <option value="Jeans">Jeans</option>
+                                <option value="Pants">Pants</option>
+                                <option value="Jacket">Jacket</option>
+                                <option value="Sweater">Sweater</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
 
-        // Mobile Sidebar Menu
-        const hamburger = document.getElementById('hamburger');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const sidebarOverlay = document.getElementById('sidebarOverlay');
+                        <div class="form-group">
+                            <label for="byoColor">Garment Color</label>
+                            <input type="text" id="byoColor" placeholder="e.g. Black, Denim Blue, Beige" required>
+                        </div>
 
-        function openMenu() {
-            hamburger.classList.add('active');
-            sidebarMenu.classList.add('active');
-            sidebarOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
+                        <div class="form-group">
+                            <label for="byoMaterial">Material (if known)</label>
+                            <input type="text" id="byoMaterial" placeholder="e.g. Cotton, Denim, Wool">
+                        </div>
 
-        function closeMenu() {
-            hamburger.classList.remove('active');
-            sidebarMenu.classList.remove('active');
-            sidebarOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-        }
+                        <div class="form-group">
+                            <label for="byoSize">Size</label>
+                            <select id="byoSize" required>
+                                <option value="">Select size</option>
+                                <option value="XS">XS</option>
+                                <option value="S">S</option>
+                                <option value="M">M</option>
+                                <option value="L">L</option>
+                                <option value="XL">XL</option>
+                                <option value="XXL">XXL</option>
+                            </select>
+                        </div>
 
-        hamburger.addEventListener('click', openMenu);
-        sidebarOverlay.addEventListener('click', closeMenu);
-
-        // Close menu when pressing Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && sidebarMenu.classList.contains('active')) {
-                closeMenu();
-            }
-        });
-
-        // Scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Creator functionality
-        let selectedCategory = null;
-        let selectedDesign = null;
-        let selectedPosition = null;
-        let selectedSize = null;
-        let selectedThreadColor = 'black';
-
-        // Category selection
-        document.querySelectorAll('.category-card').forEach(card => {
-            card.addEventListener('click', () => {
-                document.querySelectorAll('.category-card').forEach(c => c.classList.remove('selected'));
-                card.classList.add('selected');
-                selectedCategory = card.dataset.category;
-                document.getElementById('summaryGarment').textContent = card.querySelector('h4').textContent;
-                
-                document.getElementById('step2').classList.add('active');
-                
-                setTimeout(() => {
-                    document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            });
-        });
-
-        // Design selection
-        document.querySelectorAll('.design-card').forEach(card => {
-            card.addEventListener('click', () => {
-                document.querySelectorAll('.design-card').forEach(c => c.classList.remove('selected'));
-                card.classList.add('selected');
-                selectedDesign = card.dataset.design;
-                document.getElementById('summaryDesign').textContent = card.querySelector('h5').textContent;
-                
-                const previewImage = document.getElementById('previewImage');
-                previewImage.style.opacity = '0.5';
-                setTimeout(() => {
-                    previewImage.style.opacity = '1';
-                }, 300);
-                
-                document.getElementById('step3').classList.add('active');
-                
-                setTimeout(() => {
-                    document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300);
-            });
-        });
-
-        // Option buttons
-        document.querySelectorAll('.option-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const option = button.dataset.option;
-                const value = button.dataset.value;
-                
-                button.parentElement.querySelectorAll('.option-button').forEach(btn => {
-                    btn.classList.remove('selected');
-                });
-                button.classList.add('selected');
-                
-                if (option === 'position') {
-                    selectedPosition = value;
-                    document.getElementById('summaryPosition').textContent = value.charAt(0).toUpperCase() + value.slice(1);
-                } else if (option === 'size') {
-                    selectedSize = value;
-                    document.getElementById('summarySize').textContent = value.toUpperCase();
-                }
-            });
-        });
-
-        // Thread color selection
-        document.querySelectorAll('.thread-color').forEach(color => {
-            color.addEventListener('click', () => {
-                document.querySelectorAll('.thread-color').forEach(c => c.classList.remove('selected'));
-                color.classList.add('selected');
-                selectedThreadColor = color.dataset.color;
-                document.getElementById('summaryThread').textContent = color.dataset.color.charAt(0).toUpperCase() + color.dataset.color.slice(1);
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Parallax effect
-        window.addEventListener('scroll', () => {
-            const heroImage = document.querySelector('.hero-image img');
-            if (heroImage) {
-                const scrolled = window.pageYOffset;
-                heroImage.style.transform = `translateY(${scrolled * 0.2}px)`;
-            }
-        });
-    </script>
-    <!-- Login Modal Overlay -->
-<div class="login-modal-overlay" id="loginOverlay">
-    <div class="login-modal">
-        <button class="close-modal" id="closeModal" aria-label="Close">✕</button>
-        
-        <div class="login-modal-header">
-            <span class="modal-label">BYHUMAN / MEMBERSHIP</span>
-            <h3 class="modal-title">Sign In.</h3>
-            <p class="modal-subtitle">Welcome back. Access your account and track your handcrafted pieces.</p>
-        </div>
-
-        <form class="login-form" id="loginForm">
-            <div class="form-group">
-                <label for="loginEmail">Email Address</label>
-                <input type="email" id="loginEmail" placeholder="your@email.com" required>
-            </div>
-
-            <div class="form-group">
-                <label for="loginPassword">Password</label>
-                <input type="password" id="loginPassword" placeholder="Enter your password" required>
-            </div>
-
-            <div class="form-actions">
-                <a href="#" class="forgot-password">Forgot password?</a>
-            </div>
-
-            <button type="submit" class="submit-button">Sign In</button>
-
-            <div class="modal-divider">or</div>
-
-            <p class="login-link">New to BYHUMAN? <a href="join.html">Create an account</a></p>
-        </form>
-    </div>
-</div>
-</body>
-</html>
+                        <div class="form-group">
+                            <label for="byoDesign">Design Idea</label>
+                            <select id="byoDesign" required>
+                                <option value="">Select a design inspiration</option>
+                                <option value="Japanese Tree">Japanese Tree
